@@ -7,6 +7,10 @@ namespace Core
     {    
     }
 
+    CoreApp::~CoreApp()
+    {
+    }
+
     void CoreApp::CoreAppShutdown()
     {
         ImGui_ImplOpenGL3_Shutdown();
@@ -15,7 +19,6 @@ namespace Core
         glfwDestroyWindow(c_Window);
         glfwTerminate();
     }
-
 
     bool CoreApp::init()
     {
@@ -71,6 +74,10 @@ namespace Core
         ImGui_ImplGlfw_InitForOpenGL(c_Window, true);
         ImGui_ImplOpenGL3_Init("#version 450");
         return true;
+    }
+
+    void CoreApp::run()
+    {
     }
 
     void CoreApp::Close()
