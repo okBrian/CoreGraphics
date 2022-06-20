@@ -29,10 +29,10 @@ namespace Core
         bool init();   
         virtual void run();
 
-        inline GLFWwindow* getWindow() { return c_Window; }
-        inline std::string getName() { return c_Name; }
-        inline int getWidth() { return c_Width; }
-        inline int getHeight() { return c_Height; }
+        inline GLFWwindow* getWindow() const { return c_Window; }
+        inline std::string getName() const { return c_Name; }
+        inline int getWidth() const { return c_Width; }
+        inline int getHeight() const { return c_Height; }
 
 
         inline void ImGuiNewFrame() 
