@@ -7,7 +7,7 @@ namespace Core
     {
         if (!glfwInit())
         {
-            Logging::error("GLFW could not be initialized");
+            CORE_CRITICAL("GLFW could not be initialized");
             WindowRunning = false;
             return;
         }
@@ -19,7 +19,7 @@ namespace Core
         window = glfwCreateWindow(width, height, title.c_str(), NULL, NULL);
         if(!window)
         {
-            Logging::error("Window could not be created");
+            CORE_ERROR("Window could not be created");
             WindowRunning = false;
             glfwTerminate();
             return;

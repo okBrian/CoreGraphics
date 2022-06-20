@@ -6,6 +6,7 @@ namespace Core
 		: type(texType), slot(slot), filePath(filePath),
 		width(0), height(0), BPP(0)
 	{
+		CORE_DEBUG("Image loaded from {0} at slot - {1}", filePath, slot);
 		stbi_set_flip_vertically_on_load(1);
 		unsigned char* bytes = stbi_load(filePath.c_str(), &width, &height, &BPP, STBI_rgb);
 
@@ -33,11 +34,13 @@ namespace Core
 
 	Texture::~Texture()
 	{
+		CORE_DEBUG("Deleted Texture");
 		glDeleteTextures(1, &ID);
 	}
 
 	void Texture::texUnit(Shader& shader, const char* uniform, GLuint unit)
 	{
+		CORE_DEBUG("Binding Texture to be sent to shader");
 		// Sets up the uniform or global shader variables
 		GLuint texUni = glGetUniformLocation(shader.getID(), uniform);
 		shader.Bind();
@@ -46,12 +49,14 @@ namespace Core
 
 	void Texture::Bind()const
 	{
+		CORE_DEBUG("Activating Texture at slot - {}", slot);
 		glActiveTexture(GL_TEXTURE0 + slot);
 		glBindTexture(type, ID);
 	}
 
 	void Texture::Unbind() const
 	{
+		CORE_DEBUG("Unbinding Texture at slot - {}", slot);
 		glBindTexture(type, 0);
 	}
 };

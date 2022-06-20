@@ -1,14 +1,16 @@
 #pragma once
 #include <glad/glad.h>
+#include <Logging/Logging.hpp>
 namespace Core
 {
-    // Basic CoreApp Class that holds the GLFW window and Renderer for CoreApp. It also holds basic utility for imgui
+    // Base class that is to be super class for client class
     class CoreApp
     {
     public:
         CoreApp()
         {
             gladLoadGL();
+            Logging::init();
         }
 
         virtual void run() = 0;

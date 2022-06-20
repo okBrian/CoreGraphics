@@ -5,6 +5,8 @@
 
 #include <glad/glad.h>
 
+#include <Logging/Logging.hpp>
+
 namespace Core
 {
 
@@ -50,6 +52,7 @@ namespace Core
 		template<typename T>
 		void Push(GLuint count)
 		{
+			CORE_ERROR("Push type not given")
 			static_assert(false);
 		}
 
@@ -57,18 +60,21 @@ namespace Core
 		template<>
 		void Push<float>(GLuint count)
 		{
+			CORE_DEBUG("Pushing GL_FLOATS, count - {0}", count);
 			elements.push_back({ GL_FLOAT, count, GL_FALSE });
 			stride += count * VBE::GetSizeOfType(GL_FLOAT);
 		}
 		template<>
 		void Push<unsigned int>(GLuint count)
 		{
+			CORE_DEBUG("Pushing GL_UNSIGNED_INT, count - {0}", count);
 			elements.push_back({ GL_UNSIGNED_INT, count, GL_FALSE });
 			stride += count * VBE::GetSizeOfType(GL_UNSIGNED_INT);
 		}
 		template<>
 		void Push<unsigned char>(GLuint count)
 		{
+			CORE_DEBUG("Pushing GL_UNSIGNED_BYTE, count - {0}", count);
 			elements.push_back({ GL_UNSIGNED_BYTE, count, GL_TRUE });
 			stride += count * VBE::GetSizeOfType(GL_UNSIGNED_BYTE);
 		}

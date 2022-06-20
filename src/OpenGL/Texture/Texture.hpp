@@ -5,7 +5,7 @@
 #include <stb_image.h>
 
 #include <Shader/Shader.hpp>
-
+#include <Logging/Logging.hpp>
 namespace Core
 {
 	class Texture

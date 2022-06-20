@@ -18,7 +18,7 @@ namespace Core
 			return(contents);
 		}
 
-		Logging::error("Could not open file " + filename);
+		CORE_ERROR("Could not open file " + filename);
 		throw(errno);
 	}
 
@@ -98,6 +98,7 @@ namespace Core
 	// Create the shader itself
 	GLuint Shader::CreateShader(ShaderSource shaders)
 	{
+		CORE_DEBUG("Creating Shader from Vertex Source {0} and Fragment Source {1}", shaders.VertexSource, shaders.FragmentSource);
 		GLuint program = glCreateProgram();
 		GLuint vs = CompileShader(GL_VERTEX_SHADER, shaders.VertexSource);
 		GLuint fs = CompileShader(GL_FRAGMENT_SHADER, shaders.FragmentSource);
@@ -131,7 +132,7 @@ namespace Core
 			glGetShaderInfoLog(id, len, &len, message);
 
 			std::string typeOfShader = (type == GL_VERTEX_SHADER ? "vertex" : "fragment");
-			Logging::error("Failed to compile " + typeOfShader  + " shader\n" + message);
+			CORE_ERROR("Failed to compile " + typeOfShader  + " shader\n" + message);
 
 			glDeleteShader(id);
 			return 0;
