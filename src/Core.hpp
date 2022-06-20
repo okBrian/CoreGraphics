@@ -1,5 +1,6 @@
 #include <glad/glad.h>
 
+#include <CoreApp.hpp>
 #include <FBO/FBO.hpp>
 #include <IBO/IBO.hpp>
 #include <Logging/Logging.hpp>
