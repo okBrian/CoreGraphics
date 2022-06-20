@@ -70,7 +70,7 @@ namespace Core
         // Setup Platform/Renderer backends
         ImGui_ImplGlfw_InitForOpenGL(c_Window, true);
         ImGui_ImplOpenGL3_Init("#version 450");
-
+        return true;
     }
 
     void CoreApp::Close()

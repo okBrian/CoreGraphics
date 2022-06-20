@@ -1,5 +1,6 @@
 #pragma once
 
+#include <glad/glad.h>
 #include <Logging/Logging.hpp>
 
 #include <GLFW/glfw3.h>
@@ -70,5 +71,5 @@ namespace Core
     };
 
     // Defined by user
-    CoreApp* Core::CreateApp();
+    CoreApp* CreateApp();
 };
