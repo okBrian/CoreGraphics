@@ -71,5 +71,7 @@ namespace Core
     };
 
     // Defined by user
-    CoreApp* Core::CreateApp();
+    CoreApp* Core::CreateApp()
+    {
+    }
 };
