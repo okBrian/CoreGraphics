@@ -4,7 +4,7 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include <stb_image.h>
 
-#include "../Shader/Shader.hpp"
+#include <Shader/Shader.hpp>
 
 namespace Core
 {

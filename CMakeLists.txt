@@ -26,4 +26,6 @@ find_path(STB_INCLUDE_DIRS "stb_c_lexer.h")
 target_include_directories(${PROJECT_NAME}
     PUBLIC ${STB_INCLUDE_DIRS}
     PUBLIC src/
+    PUBLIC src/OpenGL
+    PUBLIC src/Window/
 )

@@ -1,6 +1,6 @@
 #pragma once
 #include <glad/glad.h>
-#include "../VBO/VBO.hpp"
+#include <VBO/VBO.hpp>
 
 namespace Core
 {

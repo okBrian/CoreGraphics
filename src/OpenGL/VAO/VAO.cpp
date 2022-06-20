@@ -1,5 +1,5 @@
 #include "VAO.hpp"
-#include <VBO/VBOLayout.hpp>
+#include <OpenGL/VBO/VBOLayout.hpp>
 
 
 namespace Core
