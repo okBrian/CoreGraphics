@@ -21,21 +21,18 @@ namespace Core
         GLFWwindow* c_Window;
         std::string c_Name;
         int c_Width, c_Height;
-        bool isRunning;
     public:
-        CoreApp(std::string name, int width, int height);
+        CoreApp(std::string name="Okoyo", int width=1280, int height=720);
         virtual ~CoreApp();
         void CoreAppShutdown();
 
         bool init();   
         virtual void run();
-        void Close();
 
         inline GLFWwindow* getWindow() { return c_Window; }
         inline std::string getName() { return c_Name; }
         inline int getWidth() { return c_Width; }
         inline int getHeight() { return c_Height; }
-        inline bool getIsRunning() { return isRunning; }
 
 
         inline void ImGuiNewFrame() 
