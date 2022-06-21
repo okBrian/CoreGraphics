@@ -50,24 +50,28 @@ namespace Core
 	// Sets uniforms for 4 float types
 	void Shader::SetUniform4f(const std::string& name, float v0, float v1, float v2, float v3)
 	{
+		CORE_DEBUG("Added {1}, {2}, {3} {4} to {0}", name, v0, v1, v2, v3);
 		glUniform4f(GetUniformLocation(name), v0, v1, v2, v3);
 	}
 
 	// Sets uniforms for 1 float types
 	void Shader::SetUniform1f(const std::string& name, float value)
 	{
+		CORE_DEBUG("Added {1} to {0}", name, value);
 		glUniform1f(GetUniformLocation(name), value);
 	}
 
 	// Sets uniforms for 1 integer types
 	void Shader::SetUniform1i(const std::string& name, int value)
 	{
+		CORE_DEBUG("Added {1} to {0}", name, value);
 		glUniform1i(GetUniformLocation(name), value);
 	}
 
 	// Sets uniforms for 4x4 float matrix
 	void Shader::SetUniformMat4f(const std::string& name, const glm::mat4& matrix)
 	{
+		CORE_DEBUG("Added 4x4 matrix to {0}", name);
 		glUniformMatrix4fv(GetUniformLocation(name), 1, GL_FALSE, &matrix[0][0]);
 	}
 

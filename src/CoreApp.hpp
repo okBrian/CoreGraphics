@@ -11,6 +11,7 @@ namespace Core
         {
             gladLoadGL();
             Logging::init();
+            CORE_INFO("Core Engine Initiated!");
         }
 
         virtual void run() = 0;

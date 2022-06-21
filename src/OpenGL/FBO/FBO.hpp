@@ -3,10 +3,11 @@
 
 #include <glad/glad.h>
 
-#include <OpenGL/VBO/VBO.hpp>
-#include <OpenGL/VAO/VAO.hpp>
-#include <OpenGL/RBO/RBO.hpp>
-#include <OpenGL/VBO/VBOLayout.hpp>
+#include <VBO/VBO.hpp>
+#include <VAO/VAO.hpp>
+#include <RBO/RBO.hpp>
+#include <VBO/VBOLayout.hpp>
+#include <Logging/Logging.hpp>
 
 namespace Core
 {

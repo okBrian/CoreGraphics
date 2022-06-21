@@ -1,4 +1,6 @@
+#pragma once
 #include <Window/Window.hpp>
+
 
 namespace Core
 {
@@ -9,5 +11,6 @@ namespace Core
         ~WindowsPlatform();
         void onUpdate() override;
         void Close();
+        void SetIcon(std::string filePath);
     };
 };

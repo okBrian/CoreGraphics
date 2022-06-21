@@ -7,6 +7,7 @@ namespace Core
     FBO::FBO(VBOLayout layout, GLvoid* data, GLuint size, int width, int height)
         : layout(layout)
     {
+        CORE_DEBUG("Initializing the FBO with size - {0}, width - {1}, and height - {2}", size, width, height);
         glGenFramebuffers(1, &ID);
         Bind(); 
         glGenBuffers(GL_TEXTURE_2D, &TextureID);
@@ -28,16 +29,19 @@ namespace Core
 
     FBO::~FBO()
     {
+        CORE_DEBUG("Deleting FBO");
         glDeleteFramebuffers(1, &ID);
     }
 
     void FBO::Bind() const
     {
+        CORE_DEBUG("Binding FBO");
         glBindFramebuffer(GL_FRAMEBUFFER, ID);
     }
 
     void FBO::Unbind() const
     {
+        CORE_DEBUG("Unbinding FBO");
         glBindFramebuffer(GL_FRAMEBUFFER, 0);
     }
 

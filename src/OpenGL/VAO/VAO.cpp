@@ -27,7 +27,7 @@ namespace Core
 		vbo.Bind();
 		// Gets the vector storing the information about vbos
 		const auto& elements = layout.GetElements();
-		GLuint offset = 0;
+		uintptr_t  offset = 0;
 		// Itterates through elements to access 
 		for (int i = 0; i < elements.size(); i++)
 		{

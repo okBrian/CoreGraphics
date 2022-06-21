@@ -9,6 +9,8 @@
 #include <VAO/VAO.hpp>
 #include <VBO/VBO.hpp>
 
+#define STB_IMAGE_IMPLEMENTATION
+#include <stb_image.h>
 #include <Logging/Logging.hpp>
 #include <ImGui/ImGuiClass.hpp>
 #include <WindowsPlatform/WindowsPlatform.hpp>

@@ -4,6 +4,7 @@ namespace Core
 {
     void Renderer::Clear() const
     {
+        CORE_DEBUG("Cleared the Color and Depth Buffer!");
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     }
 
@@ -12,7 +13,7 @@ namespace Core
         shader.Bind();
         va.Bind();
         ibo.Bind();
-
+        CORE_DEBUG("Drawing the elements!");
         glDrawElements(GL_TRIANGLES, ibo.getCount(), GL_UNSIGNED_INT, nullptr);
     }
 };

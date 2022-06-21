@@ -18,16 +18,16 @@ namespace Core
 	// Initialize the Logger Class
 	void Logging::init()
 	{
-		auto console = spdlog::stdout_color_mt("console");
-		
-		CoreLogger = std::make_shared<spdlog::logger>("CORE");
-		CoreLogger->set_pattern("%^[%n][%l][%@]%$ - %v");
+		auto sink = std::make_shared<spdlog::sinks::stdout_color_sink_mt>();
+		sink->set_pattern("%^[%n][%l]%$ - %v");
+
+
+		CoreLogger = std::make_shared<spdlog::logger>("CORE", sink);
 		spdlog::register_logger(CoreLogger);
 		CoreLogger->set_level(spdlog::level::debug);
 		CoreLogger->flush_on(spdlog::level::debug);
 
-		AppLogger = std::make_shared<spdlog::logger>("APP");
-		AppLogger->set_pattern("%^[%n][%l][%@]%$ - %v");
+		AppLogger = std::make_shared<spdlog::logger>("APP", sink);
 		spdlog::register_logger(AppLogger);
 		AppLogger->set_level(spdlog::level::debug);
 		AppLogger->flush_on(spdlog::level::debug);

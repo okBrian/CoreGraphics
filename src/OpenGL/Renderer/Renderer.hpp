@@ -3,6 +3,7 @@
 #include <VAO/VAO.hpp>
 #include <IBO/IBO.hpp>
 #include <Shader/Shader.hpp>
+#include <Logging/Logging.hpp>
 
     namespace Core
     {

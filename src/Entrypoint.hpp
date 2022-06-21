@@ -1,5 +1,5 @@
 #pragma once
-
+#include <Logging/Logging.hpp>
 extern Core::CoreApp* Core::CreateApp();
 
 int main(int argc, char** argv)
