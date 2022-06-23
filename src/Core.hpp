@@ -1,6 +1,11 @@
 #pragma once
 #include <CoreApp.hpp>
 
+#include <stb_image.h>
+#include <Logging/Logging.hpp>
+#include <ImGui/ImGuiClass.hpp>
+#include <WindowsPlatform/WindowsPlatform.hpp>
+
 #include <FBO/FBO.hpp>
 #include <IBO/IBO.hpp>
 #include <Renderer/Renderer.hpp>
@@ -9,12 +14,7 @@
 #include <VAO/VAO.hpp>
 #include <VBO/VBO.hpp>
 
-#define STB_IMAGE_IMPLEMENTATION
-#include <stb_image.h>
-#include <Logging/Logging.hpp>
-#include <ImGui/ImGuiClass.hpp>
-#include <WindowsPlatform/WindowsPlatform.hpp>
-
+#include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <imgui.h>
 #include <imgui_impl_glfw.h>
@@ -23,3 +23,13 @@
 
 // ENTRY POINT 
 #include <Entrypoint.hpp>
+
+bool LoadOpenGLContext()
+{
+    if (!gladLoadGLLoader((GLADloadproc) glfwGetProcAddress))
+    {
+        CORE_CRITICAL("OpenGL context couldn't be loaded!");
+        return false;
+    }
+    return true;
+}

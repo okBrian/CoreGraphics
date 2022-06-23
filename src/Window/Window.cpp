@@ -1,5 +1,4 @@
 #include "Window.hpp"
-
 namespace Core
 {
     Window::Window(std::string title/*="CoreApp"*/, int width/*=1280*/, int height/*=720*/)

@@ -1,10 +1,7 @@
 #pragma once
-#include <GLFW/glfw3.h>
-
 #include <string>
-
+#include <GLFW/glfw3.h>
 #include <Logging/Logging.hpp>
-
 namespace Core
 {
     // Base Window Class for the window of the app

@@ -1,6 +1,7 @@
 #pragma once
 #include <Window/Window.hpp>
 
+#include <stb_image.h>
 
 namespace Core
 {
@@ -11,6 +12,5 @@ namespace Core
         ~WindowsPlatform();
         void onUpdate() override;
         void Close();
-        void SetIcon(std::string filePath);
     };
 };

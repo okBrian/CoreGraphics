@@ -9,12 +9,12 @@ namespace Core
     public:
         CoreApp()
         {
-            gladLoadGL();
             Logging::init();
             CORE_INFO("Core Engine Initiated!");
         }
 
         virtual void run() = 0;
+
     };
 
     // Defined by user

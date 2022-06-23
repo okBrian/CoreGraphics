@@ -9,7 +9,7 @@ namespace Core
     class ImGuiClass
     {
     public:
-        ImGuiClass(GLFWwindow* window);
+        void init(GLFWwindow* window);
         ~ImGuiClass();
         void ImGuiNewFrame();
         void ImGuiRenderFrame();
