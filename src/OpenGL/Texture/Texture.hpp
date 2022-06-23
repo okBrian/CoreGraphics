@@ -18,17 +18,18 @@ namespace Core
 
 	public:
 		// Takes a texture and its parameter and converts it into unsigned char* and given to the shader
-		Texture(std::string filePath, GLenum texType, GLenum slot, GLenum format, GLenum pixelType);
+		void init(std::string filePath, GLenum texType, GLenum slot, GLenum format, GLenum pixelType);
+		// Destroy Texture
 		~Texture();
-
-		static void texUnits(Shader& shader, const char* uniform, GLint );
+		// Pass the texture to the shader
 		void texUnit(Shader& shader, const char* uniform, GLuint unit);
-		
+		// Bind the texture for current usage
 		void Bind() const;
+		// Unbind the texture for current usage
 		void Unbind() const;
-
+		// Getters for Class Member Variables
 		inline int getWidth() const { return width; }
 		inline int getHeight() const { return height; }
-		inline GLuint getId() const { return ID; }
+		inline GLuint getID() const { return ID; }
 	};
 };

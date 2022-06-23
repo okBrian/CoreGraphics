@@ -23,8 +23,7 @@ namespace Core
 	}
 
 	// Creates and Parses the Shaders
-	Shader::Shader(std::string vertexPath, std::string fragmentPath)
-		: ID(0)
+	void Shader::init(std::string vertexPath, std::string fragmentPath)
 	{
 		ID = CreateShader(ParseShader(vertexPath, fragmentPath));
 	}

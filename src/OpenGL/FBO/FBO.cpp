@@ -4,9 +4,9 @@
 namespace Core
 {
 
-    FBO::FBO(VBOLayout layout, GLvoid* data, GLuint size, int width, int height)
-        : layout(layout)
+    void FBO::init(VBOLayout layout, GLvoid* data, GLuint size, int width, int height)
     {
+        FBO::layout = layout;
         CORE_DEBUG("Initializing the FBO with size - {0}, width - {1}, and height - {2}", size, width, height);
         glGenFramebuffers(1, &ID);
         Bind(); 
@@ -18,11 +18,13 @@ namespace Core
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
         glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, TextureID, 0);
 
-        RBO rbo(width, height);
+        RBO rbo;
+        rbo.init(width, height);
         rbo.AttachRBO();
 
         VAO vao;
-        VBO vbo(data, size, GL_STATIC_DRAW);
+        VBO vbo;
+        vbo.init(data, size, GL_STATIC_DRAW);
         vao.AddBuffer(vbo, layout);
 
     }

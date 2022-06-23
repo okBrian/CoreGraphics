@@ -14,7 +14,7 @@ namespace Core
 		GLuint ID;
 	public:
 		// Initialize the VAO
-		VAO();
+		void init();
 		// Destory the VAO
 		~VAO();
 

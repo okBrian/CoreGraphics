@@ -21,11 +21,11 @@ namespace Core
         VBOLayout layout;
     public:
         // Creates the FBO, FBOTexture, and automatically connects the RBO to the FBO
-        FBO(VBOLayout layout, GLvoid* data, GLuint size, int width, int height);
+        void init(VBOLayout layout, GLvoid* data, GLuint size, int width, int height);
         ~FBO();
 
         void Bind() const;
         void Unbind() const;
-        static inline bool isComplete() { return (glCheckFramebufferStatus(GL_FRAMEBUFFER) == GL_FRAMEBUFFER_COMPLETE); }
+        static bool isComplete() { return (glCheckFramebufferStatus(GL_FRAMEBUFFER) == GL_FRAMEBUFFER_COMPLETE); }
     };
 };

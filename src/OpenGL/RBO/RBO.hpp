@@ -11,7 +11,7 @@ namespace Core
         GLuint ID;
     public:
         // Initialize the RBO & store it in depth buffer
-        RBO(int width, int height);
+        void init(int width, int height);
         // Delete the RBO
         ~RBO();
 

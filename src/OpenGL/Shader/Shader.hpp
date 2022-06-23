@@ -32,7 +32,7 @@ namespace Core
 
 	public:
 		// Creates and Parses the Shaders
-		Shader(std::string vertexPath, std::string fragmentPath);
+		void init(std::string vertexPath, std::string fragmentPath);
 		// Deletes the ShaderProgram
 		~Shader();
 

@@ -4,7 +4,7 @@ namespace Core
 {
 
 	// Initialize the RBO & store it in depth buffer
-	RBO::RBO(int width, int height)
+	void RBO::init(int width, int height)
 	{
 		CORE_DEBUG("Created a RBO with width - {0} and height - {1}", width, height);
 		glGenRenderbuffers(1, &ID);

@@ -5,11 +5,11 @@
 namespace Core
 {
 	// Initialize the VAO
-	VAO::VAO()
-		: ID(0)
+	void VAO::init()
 	{
 		CORE_DEBUG("VAO initialized");
 		glGenVertexArrays(1, &ID);
+		Bind();
 	}
 
 	// Destory the VAO

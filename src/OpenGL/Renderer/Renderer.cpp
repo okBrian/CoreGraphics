@@ -15,5 +15,8 @@ namespace Core
         ibo.Bind();
         CORE_DEBUG("Drawing the elements!");
         glDrawElements(GL_TRIANGLES, ibo.getCount(), GL_UNSIGNED_INT, nullptr);
+        shader.Unbind();
+        va.Unbind();
+        ibo.Unbind();
     }
 };

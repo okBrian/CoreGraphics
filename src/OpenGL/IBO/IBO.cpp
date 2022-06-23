@@ -3,9 +3,9 @@
 namespace Core
 {
 	// Generates 1 IBO and gives it the data/indices from the vbo
-	IBO::IBO(const GLuint* data, GLuint count)
-		: count(count)
+	void IBO::init(const GLuint* data, GLuint count)
 	{
+		IBO::count = count;
 		CORE_DEBUG("Created IBO with count - {}", count);
 		// Generates 1 name for Index Buffer Object
 		glGenBuffers(1, &ID);

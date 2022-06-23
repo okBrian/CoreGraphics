@@ -11,7 +11,7 @@ namespace Core
         GLuint ID;
     public:
         // Add Data to be uploaded to the Graphics Card
-        VBO(GLvoid* data, GLuint size, GLenum usage);
+        void init(GLvoid* data, GLuint size, GLenum usage);
         // Delete the Object
         ~VBO();
 

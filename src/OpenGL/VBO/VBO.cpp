@@ -2,9 +2,7 @@
 
 namespace Core
 {
-    // Add Data to be uploaded to the Graphics Card
-    VBO::VBO(GLvoid* data, GLuint size, GLenum usage)
-        : ID(0)
+    void VBO::init(GLvoid* data, GLuint size, GLenum usage)
     {
         CORE_DEBUG("VBO initialized with size - {0} and usage - {1}", size, usage);
         // Generate a buffer
