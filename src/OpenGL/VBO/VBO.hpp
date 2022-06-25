@@ -1,14 +1,11 @@
 #pragma once 
-#include <glad/glad.h>
-#include <Logging/Logging.hpp>
+#include <glObject.hpp>
 
 namespace Core
 {
     // Vertex Buffer Object: Uploading Vertex Data to the Graphics Card
-    class VBO
+    class VBO : public glObject
     {
-    private:
-        GLuint ID;
     public:
         // Add Data to be uploaded to the Graphics Card
         void init(GLvoid* data, GLuint size, GLenum usage);
@@ -16,8 +13,8 @@ namespace Core
         ~VBO();
 
         // Bind the VBO for current usage
-        void Bind() const;
+        void Bind() const override;
         // Unbind the VBO from current usage
-        void Unbind() const;
+        void Unbind() const override;
     };
 };

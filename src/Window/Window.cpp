@@ -1,9 +1,14 @@
 #include "Window.hpp"
 namespace Core
 {
+    bool Window::WindowRunning;
+    GLFWwindow* Window::window;
+
     Window::Window(std::string title/*="CoreApp"*/, int width/*=1280*/, int height/*=720*/)
         :  title(title), width(width), height(height)
     {
+        WindowRunning = true;
+
         if (!glfwInit())
         {
             CORE_CRITICAL("GLFW could not be initialized");

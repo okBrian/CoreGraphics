@@ -26,7 +26,7 @@ namespace Core
         ImGui_ImplOpenGL3_Init("#version 450");
     }
 
-    ImGuiClass::~ImGuiClass()
+    void ImGuiClass::shutdown()
     {
         ImGui_ImplOpenGL3_Shutdown();
         ImGui_ImplGlfw_Shutdown();

@@ -24,24 +24,24 @@ namespace Core
 
 		CoreLogger = std::make_shared<spdlog::logger>("CORE", sink);
 		spdlog::register_logger(CoreLogger);
-		CoreLogger->set_level(spdlog::level::debug);
-		CoreLogger->flush_on(spdlog::level::debug);
+		CoreLogger->set_level(spdlog::level::err);
+		CoreLogger->flush_on(spdlog::level::err);
 
 		AppLogger = std::make_shared<spdlog::logger>("APP", sink);
 		spdlog::register_logger(AppLogger);
-		AppLogger->set_level(spdlog::level::debug);
-		AppLogger->flush_on(spdlog::level::debug);
+		AppLogger->set_level(spdlog::level::err);
+		AppLogger->flush_on(spdlog::level::err);
 	}
 
 	// Set the level of the Core Class 
-	void Logging::setCoreLevel(spdlog::level::level_enum level)
+	void Logging::setCoreLevel(spdlog::level::level_enum* level)
 	{
-		CoreLogger->set_level(level);
+		CoreLogger->set_level(*level);
 	}
 
 	// Set the level of the App Class 
-	void Logging::setAppLevel(spdlog::level::level_enum level)
+	void Logging::setAppLevel(spdlog::level::level_enum* level)
 	{
-		AppLogger->set_level(level);
+		AppLogger->set_level(*level);
 	}
 };

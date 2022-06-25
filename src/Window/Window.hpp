@@ -1,4 +1,3 @@
-#pragma once
 #include <string>
 #include <GLFW/glfw3.h>
 #include <Logging/Logging.hpp>
@@ -8,20 +7,19 @@ namespace Core
     class Window
     {
     public:
-        bool WindowRunning;
+        static bool WindowRunning;
     private:
-        GLFWwindow* window;
+        static GLFWwindow* window;
         std::string title;
         const int width;
         const int height;
     public:
         Window(std::string title="CoreApp", int width=1280, int height=720);
         virtual ~Window();
-        virtual void onUpdate() = 0;
         
         int getWidth() const { return width; }
         int getHeight() const { return height; }
-        GLFWwindow* getWindow() const { return window; }
+        static GLFWwindow* getWindow() { return window; }
 
         void setVSync(bool set);
     };

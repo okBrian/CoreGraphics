@@ -26,9 +26,9 @@ namespace Core
 		// Initialize the Logger Class
 		static void init();
 		// Set the level of the Core Class 
-		static void setCoreLevel(spdlog::level::level_enum level);
+		static void setCoreLevel(spdlog::level::level_enum* level);
 		// Set the level of the App Class 
-		static void setAppLevel(spdlog::level::level_enum level);
+		static void setAppLevel(spdlog::level::level_enum* level);
 		// Getters used for the preprocessor defines
 		static std::shared_ptr<spdlog::logger>& getCoreLogger() { return CoreLogger; }
 		// Getters used for the preprocessor defines

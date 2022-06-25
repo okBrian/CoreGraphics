@@ -1,4 +1,5 @@
 #pragma once
+#include <glad/glad.h>
 #include <Window/Window.hpp>
 
 #include <stb_image.h>
@@ -10,7 +11,7 @@ namespace Core
     public:
         WindowsPlatform(std::string title="CoreApp", int width=1280, int height=720);
         ~WindowsPlatform();
-        void onUpdate() override;
+        static void onUpdate();
         void Close();
     };
 };

@@ -14,5 +14,6 @@
     public:
         void Clear() const;
         void Draw(const VAO& va, const IBO& ibo, const Shader& shader) const;
+        void Draw(const VAO& va, const GLuint count, const Shader& shader) const;
     };
 };
