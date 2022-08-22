@@ -10,4 +10,4 @@ Use MSVC as the compiler
 
 ## Example Program
 
-Am example program I made [Okoyo][https://github.com/okBrian/Okoyo.git]. A simple gui application that uses imgui to apply color masking to an image.
+Am example program I made [Okoyo](https://github.com/okBrian/Okoyo.git). A simple gui application that uses imgui to apply color masking to an image.
