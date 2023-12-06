@@ -1,5 +1,4 @@
 #include "FBO.hpp"
-#include <VBO/VBOLayout.hpp>
 
 namespace Core
 {

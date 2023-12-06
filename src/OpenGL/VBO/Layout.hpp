@@ -7,6 +7,10 @@
 
 #include <Logging/Logging.hpp>
 
+#define SIZE_FLOAT 4
+#define SIZE_UINT 4
+#define SIZE_UBYTE 1
+
 namespace Core
 {
 
@@ -14,25 +18,13 @@ namespace Core
 	struct VBE
 	{
 		GLuint type;
+		GLuint sizeOfType;
 		GLuint count;
 		GLboolean normalized;
-
-		// Returns the size of the type ie - float, unsigned int, unsigned byte
-		static unsigned int GetSizeOfType(unsigned int type)
-		{
-			switch (type)
-			{
-			case GL_FLOAT:			return 4;
-			case GL_UNSIGNED_INT:	return 4;
-			case GL_UNSIGNED_BYTE:	return 1;
-			}
-			throw(errno);
-			return 0;
-		}
 	};
 
 	// Passes VBOs to the shader through different Layouts
-	class VBOLayout
+	class Layout
 	{
 	private:
 		// vector that stores VBO with the same layout
@@ -42,8 +34,7 @@ namespace Core
 		GLuint stride;
 
 	public:
-		// Initializes stride to 0
-		VBOLayout()
+		Layout()
 			: stride(0)
 		{
 		}
@@ -56,32 +47,32 @@ namespace Core
 			static_assert(false);
 		}
 
-		// Adds a vbo by type and the count also adds to the stride 
+		// Adds a vbo by type and the count also adds to the stride
 		template<>
 		void Push<float>(GLuint count)
 		{
 			CORE_DEBUG("Pushing GL_FLOATS, count - {0}", count);
-			elements.push_back({ GL_FLOAT, count, GL_FALSE });
-			stride += count * VBE::GetSizeOfType(GL_FLOAT);
+			elements.push_back({ GL_FLOAT, SIZE_FLOAT, count, GL_FALSE });
+			stride += count * SIZE_FLOAT;
 		}
 		template<>
 		void Push<unsigned int>(GLuint count)
 		{
 			CORE_DEBUG("Pushing GL_UNSIGNED_INT, count - {0}", count);
-			elements.push_back({ GL_UNSIGNED_INT, count, GL_FALSE });
-			stride += count * VBE::GetSizeOfType(GL_UNSIGNED_INT);
+			elements.push_back({ GL_UNSIGNED_INT, SIZE_UINT, count, GL_FALSE });
+			stride += count * SIZE_UINT;
 		}
 		template<>
 		void Push<unsigned char>(GLuint count)
 		{
 			CORE_DEBUG("Pushing GL_UNSIGNED_BYTE, count - {0}", count);
-			elements.push_back({ GL_UNSIGNED_BYTE, count, GL_TRUE });
-			stride += count * VBE::GetSizeOfType(GL_UNSIGNED_BYTE);
+			elements.push_back({ GL_UNSIGNED_BYTE, SIZE_UBYTE, count, GL_TRUE });
+			stride += count * SIZE_UBYTE;
 		}
 
 		// Gets the vector that holds vbo information
 		inline const std::vector<VBE>& GetElements() const { return elements; }
-		// Gets the stride of the vbo 
+		// Gets the stride of the vbo
 		inline unsigned int getStride() const { return stride; }
 
 	};

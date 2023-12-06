@@ -1,14 +1,14 @@
 #pragma once
-#include <glObject.hpp>
+#include <glad/glad.h>
+#include <Logging/Logging.hpp>
 #include <stb_image.h>
-
 #include <Shader/Shader.hpp>
 namespace Core
 {
-	class Texture : public glObject
+	class Texture
 	{
 	private:
-		GLuint slot;
+		GLuint ID, slot;
 		std::string filePath;
 		int width, height, BPP;
 
@@ -20,9 +20,9 @@ namespace Core
 		// Pass the texture to the shader
 		void texUnit(Shader& shader, const char* uniform, GLuint unit);
 		// Bind the texture for current usage
-		void Bind() const override;
+		void Bind() const;
 		// Unbind the texture for current usage
-		void Unbind() const override;
+		void Unbind() const;
 		// Getters for Class Member Variables
 		inline int getWidth() const { return width; }
 		inline int getHeight() const { return height; }

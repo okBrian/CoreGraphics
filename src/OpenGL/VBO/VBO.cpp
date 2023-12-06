@@ -2,24 +2,22 @@
 
 namespace Core
 {
-    void VBO::init(GLvoid* data, GLuint size, GLenum usage)
+    void VBO::init(GLvoid *data, GLuint size, GLenum usage)
     {
         CORE_DEBUG("VBO initialized with size - {0} and usage - {1}", size, usage);
-        // Generate a buffer
         glGenBuffers(1, &ID);
-        // Bind it
         Bind();
-        // Bind the vertex data to the buffer
+        // Sends the vertex data to the buffer
         glBufferData(GL_ARRAY_BUFFER, size, data, usage);
     }
 
     // Delete the Object
     VBO::~VBO()
     {
-        CORE_DEBUG("Deleted VBO");
+        CORE_DEBUG("VBO Destroyed");
+        // Deletes the Buffer
         glDeleteBuffers(1, &ID);
     }
-
     // Bind the VBO for current usage
     void VBO::Bind() const
     {

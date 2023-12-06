@@ -1,25 +1,25 @@
 #pragma once
 #include <array>
-
-#include <glObject.hpp>
+#include <glad/glad.h>
+#include <Logging/Logging.hpp>
 #include <RBO/RBO.hpp>
 
 namespace Core
 {
 
     // FrameBuffer Object: Collection of multiple buffer that can allow for post proccessing effects
-    class FBO : public glObject
+    class FBO
     {
     private:
-        GLuint TextureID;
+        GLuint ID, TextureID;
         int width, height;
     public:
         // Creates the FBO, FBOTexture, and automatically connects the RBO to the FBO
         void init(int width, int height);
         ~FBO();
         void AttachColorBuffer();
-        void Bind() const override;
-        void Unbind() const override;
+        void Bind() const;
+        void Unbind() const;
         static bool isComplete() { return (glCheckFramebufferStatus(GL_FRAMEBUFFER) == GL_FRAMEBUFFER_COMPLETE); }
         void BindTexture() const { glBindTexture(GL_TEXTURE_2D, TextureID); }
     };

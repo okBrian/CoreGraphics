@@ -4,12 +4,12 @@ namespace Core
 	// Takes a texture and its parameter and converts it into unsigned char* and given to the shader
 	void Texture::init(std::string filePath, GLuint slot, GLenum internalFormat, GLenum format)
 	{
-		Texture::slot = slot;
-		Texture::filePath = filePath;
+		this->slot = slot;
+		this->filePath = filePath;
 		CORE_DEBUG("Image loaded from {0} at slot - {1}", filePath, slot);
 		stbi_set_flip_vertically_on_load(1);
 		unsigned char* bytes = stbi_load(filePath.c_str(), &width, &height, &BPP, STBI_rgb);
-		
+
 		glActiveTexture(GL_TEXTURE0 + slot);
 		glCreateTextures(GL_TEXTURE_2D, 1, &ID);
 		Bind();

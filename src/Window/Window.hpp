@@ -17,8 +17,8 @@ namespace Core
         Window(std::string title="CoreApp", int width=1280, int height=720);
         virtual ~Window();
         
-        int getWidth() const { return width; }
-        int getHeight() const { return height; }
+        inline int getWidth() const { return width; }
+        inline int getHeight() const { return height; }
         static GLFWwindow* getWindow() { return window; }
 
         void setVSync(bool set);

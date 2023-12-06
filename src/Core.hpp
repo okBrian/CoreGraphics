@@ -10,7 +10,7 @@
 #include <Texture/Texture.hpp>
 #include <VAO/VAO.hpp>
 #include <VBO/VBO.hpp>
-#include <VBO/VBOLayout.hpp>
+#include <VBO/Layout.hpp>
 
 #include <GLFW/glfw3.h>
 #include <imgui.h>

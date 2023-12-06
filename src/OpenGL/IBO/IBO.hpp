@@ -1,13 +1,14 @@
 #pragma once
-#include <glObject.hpp>
+#include <glad/glad.h>
+#include <Logging/Logging.hpp>
 namespace Core
 {
 
 	// Index Buffer Object: Takes an array of vertex buffers and orders them
-	class IBO : public glObject
+	class IBO
 	{
 	private:
-		GLuint count;
+		GLuint ID, count;
 	public:
 		// Generates 1 IBO and gives it the data/indices from the vbo
 		void init(const GLuint* data, GLuint count);
@@ -15,9 +16,9 @@ namespace Core
 		~IBO();
 
 		// Binds the IBO for current use
-		void Bind() const override;
+		void Bind() const;
 		// Unbind the IBO from current usage
-		void Unbind() const override;
+		void Unbind() const;
 		// Returns the amount of data their is
 		inline unsigned int getCount() const { return count; }
 	};

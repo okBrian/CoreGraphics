@@ -83,9 +83,6 @@ namespace Core
 		GLint location = glGetUniformLocation(ID, name.c_str());
 		UniformLocationCache[name] = location;
 		return location;
-
-		UniformLocationCache[name] = location;
-		return location;
 	}
 
 	// Get the file contents of the shader
