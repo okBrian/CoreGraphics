@@ -3,7 +3,8 @@
 #include <unordered_map>
 #include <string>
 
-#include <glObject.hpp>
+#include <glad/glad.h>
+#include <Logging/Logging.hpp>
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
@@ -21,10 +22,10 @@ namespace Core
 	};
 
 	// Shader: Used to read the shader to apply during the graphics pipeline
-	class Shader : public glObject
+	class Shader
 	{
 	private:
-		// mutable so modifiable by a const function
+		GLuint ID;
 		// Put the uniform in cache for easy access
 		mutable std::unordered_map<std::string, GLint> UniformLocationCache;
 
@@ -35,9 +36,9 @@ namespace Core
 		~Shader();
 
 		// Binds it for current use
-		void Bind() const override;
+		void Bind() const;
 		// Unbinds it so you can use different shaders
-		void Unbind() const override;
+		void Unbind() const;
 
 		// Sets uniforms for 4 float types
 		void SetUniform4f(const std::string& name, float v0, float v1, float v2, float v3);

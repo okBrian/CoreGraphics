@@ -1,11 +1,14 @@
 #pragma once
-#include <glObject.hpp>
+#include <glad/glad.h>
+#include <Logging/Logging.hpp>
 namespace Core
 {
 
     // Render Buffer Object: Stores an image to be used with the FBO can't be accesed in shader
-    class RBO : public glObject
+    class RBO
     {
+    private:
+        GLuint ID;
     public:
         // Initialize the RBO & store it in depth buffer
         void init(int width, int height);
@@ -13,9 +16,9 @@ namespace Core
         ~RBO();
 
         // Binds the RBO for current use
-        void Bind() const override;
+        void Bind() const;
         // Unbind the RBO from current usage
-        void Unbind() const override;
+        void Unbind() const;
         // Attach the RBO to the FBO
         void AttachRBO() const;
     };

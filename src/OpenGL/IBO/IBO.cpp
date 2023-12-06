@@ -11,7 +11,7 @@ namespace Core
 		glGenBuffers(1, &ID);
 		// Bind the buffer for your usage
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ID);
-		// Set the data used for in GL_ELEMENT_ARRAY_BUFFER  
+		// Set the data used for in GL_ELEMENT_ARRAY_BUFFER
 		glBufferData(GL_ELEMENT_ARRAY_BUFFER, count * sizeof(unsigned int), data, GL_STATIC_DRAW);
 	}
 

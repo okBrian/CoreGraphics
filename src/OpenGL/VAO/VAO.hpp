@@ -1,14 +1,15 @@
 #pragma once
-#include <glObject.hpp>
 #include <VBO/VBO.hpp>
 
 
 namespace Core
 {
-	class VBOLayout;
+	class Layout;
 	// Vertex Array Object: Stores the format of the vertex data and the buffer object
-	class VAO : public glObject
+	class VAO
 	{
+	private:
+		GLuint ID;
 	public:
 		// Initialize the VAO
 		void init();
@@ -17,11 +18,11 @@ namespace Core
 
 		// Adds a VBO to the VAO
 		// Offset to the first element ie - XYRGB - the offset for RGB is 8
-		void AddBuffer(const VBO& vbo, VBOLayout& layout);
+		void AddBuffer(const VBO& vbo, Layout& layout);
 
 		// Binds the VAO for current use
-		void Bind() const override;
+		void Bind() const;
 		// Unbind the VBO from current usage
-		void Unbind() const override;
+		void Unbind() const;
 	};
 };
