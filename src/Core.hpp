@@ -1,5 +1,4 @@
 #pragma once
-#include <CoreApp.hpp>
 
 #include <stb_image.h>
 
@@ -11,15 +10,13 @@
 #include <VAO/VAO.hpp>
 #include <VBO/VBO.hpp>
 #include <VBO/Layout.hpp>
+#include <Window/Window.hpp>
 
 #include <GLFW/glfw3.h>
 #include <imgui.h>
 #include <imgui_impl_glfw.h>
 #include <imgui_impl_opengl3.h>
 
-
-// ENTRY POINT 
-#include <Entrypoint.hpp>
 
 bool LoadOpenGLContext()
 {

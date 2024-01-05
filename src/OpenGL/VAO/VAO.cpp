@@ -5,17 +5,17 @@
 namespace Core
 {
 	// Initialize the VAO
-	void VAO::init()
+	VAO::VAO()
 	{
-		CORE_DEBUG("VAO initialized");
 		glGenVertexArrays(1, &ID);
+		CORE_TRACE("VAO initialized with ID - {}", ID);
 		Bind();
 	}
 
 	// Destory the VAO
 	VAO::~VAO()
 	{
-		CORE_DEBUG("VAO deleted");
+		CORE_TRACE("VAO deleted");
 		glDeleteVertexArrays(1, &ID);
 	}
 
@@ -32,7 +32,7 @@ namespace Core
 		for (int i = 0; i < elements.size(); i++)
 		{
 			const auto& element = elements[i];
-			CORE_DEBUG("Adding element with count - {0}, type - {1}, normalized - {2} and stride of {3}", element.count, element.type, element.normalized, layout.getStride());
+			CORE_TRACE("Adding element with count - {0}, type - {1}, normalized - {2} and stride of {3}", element.count, element.type, element.normalized, layout.getStride());
 			// Enables layout
 			glEnableVertexAttribArray(i);
 			// specify the location and data format of the array of vertex attributes at index
@@ -45,7 +45,7 @@ namespace Core
 	// Binds the VAO for current use
 	void VAO::Bind() const
 	{
-		CORE_DEBUG("Binding the VAO");
+		CORE_TRACE("Binding the VAO");
 		glBindVertexArray(ID);
 	}
 
@@ -53,7 +53,7 @@ namespace Core
 	// Unbind the VBO from current usage
 	void VAO::Unbind() const
 	{
-		CORE_DEBUG("Unbinding the VAO");
+		CORE_TRACE("Unbinding the VAO");
 		glBindVertexArray(0);
 	}
 };

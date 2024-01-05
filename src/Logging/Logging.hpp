@@ -38,12 +38,14 @@ namespace Core
 
 /* PREPROCESSOR DEFINES FOR EASY ACCESS TO LOGGER */
 
+#define CORE_TRACE(...)    ::Core::Logging::getCoreLogger()->trace(__VA_ARGS__)
 #define CORE_DEBUG(...)    ::Core::Logging::getCoreLogger()->debug(__VA_ARGS__)
 #define CORE_INFO(...)     ::Core::Logging::getCoreLogger()->info(__VA_ARGS__)
 #define CORE_WARN(...)     ::Core::Logging::getCoreLogger()->warn(__VA_ARGS__)
 #define CORE_ERROR(...)    ::Core::Logging::getCoreLogger()->error(__VA_ARGS__)
 #define CORE_CRITICAL(...) ::Core::Logging::getCoreLogger ()->critical(__VA_ARGS__)
 
+#define DEBUG_TRACE(...)       ::Core::Logging::getAppLogger()->trace(__VA_ARGS__)
 #define APP_DEBUG(...)		   ::Core::Logging::getAppLogger()->debug(__VA_ARGS__)
 #define APP_INFO(...)          ::Core::Logging::getAppLogger()->info(__VA_ARGS__)
 #define APP_WARN(...)          ::Core::Logging::getAppLogger()->warn(__VA_ARGS__)

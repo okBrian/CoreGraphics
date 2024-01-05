@@ -3,23 +3,23 @@
 namespace Core
 {
 
-    void FBO::init(int width, int height)
+    FBO::FBO(int width, int height)
+        : width(width), height(height)
     {
-        FBO::width = width;
-        FBO::height = height;
-        CORE_DEBUG("Initializing the FBO with width - {1} and height - {2}", width, height);
         glGenFramebuffers(1, &ID);
-        Bind(); 
+        CORE_TRACE("Initializing the FBO with ID - {}", ID);
+        Bind();
     }
 
     FBO::~FBO()
     {
-        CORE_DEBUG("Deleting FBO");
+        CORE_TRACE("Deleting FBO with ID - {}", ID);
         glDeleteFramebuffers(1, &ID);
     }
 
     void FBO::AttachColorBuffer() 
     {
+        CORE_TRACE("Attaching Texture to FBO with ID {}", ID);
         glGenTextures(1, &TextureID);
         glBindTexture(GL_TEXTURE_2D, TextureID);
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, NULL);
@@ -32,13 +32,13 @@ namespace Core
 
     void FBO::Bind() const
     {
-        CORE_DEBUG("Binding FBO");
+        CORE_TRACE("Binding FBO with ID - {}", ID);
         glBindFramebuffer(GL_FRAMEBUFFER, ID);
     }
 
     void FBO::Unbind() const
     {
-        CORE_DEBUG("Unbinding FBO");
+        CORE_TRACE("Unbinding FBO with ID - {}", ID);
         glBindFramebuffer(GL_FRAMEBUFFER, 0);
     }
 

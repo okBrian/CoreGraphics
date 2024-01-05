@@ -6,6 +6,7 @@ namespace Core
 	// Reads a text file and outputs a string with everything in the text file
 	std::string get_file_contents(std::string filename)
 	{
+		CORE_TRACE("Reading File contents from {}", filename);
 		std::ifstream in(filename, std::ios::binary);
 		if (in)
 		{
@@ -23,54 +24,58 @@ namespace Core
 	}
 
 	// Creates and Parses the Shaders
-	void Shader::init(std::string vertexPath, std::string fragmentPath)
+	Shader::Shader(std::string vertexPath, std::string fragmentPath)
 	{
+		CORE_TRACE("Creating Shader from vertex - {} & fragment - {}", vertexPath, fragmentPath);
 		ID = CreateShader(ParseShader(vertexPath, fragmentPath));
 	}
 
 	// Deletes the ShaderProgram
 	Shader::~Shader()
 	{
+		CORE_TRACE("Deleating ShaderProgram with ID - {}", ID);
 		glDeleteProgram(ID);
 	}
 
 	// Binds it for current use
 	void Shader::Bind() const
 	{
+		CORE_TRACE("Binding ShaderProgram with ID - {}", ID);
 		glUseProgram(ID);
 	}
 
 	// Unbinds it so you can use different shaders
 	void Shader::Unbind() const
 	{
+		CORE_TRACE("Unbinding ShaderProgram with ID - {}", ID);
 		glUseProgram(0);
 	}
 
 	// Sets uniforms for 4 float types
 	void Shader::SetUniform4f(const std::string& name, float v0, float v1, float v2, float v3)
 	{
-		CORE_DEBUG("Added {1}, {2}, {3} {4} to {0}", name, v0, v1, v2, v3);
+		CORE_TRACE("Added {1}, {2}, {3} {4} to {0}", name, v0, v1, v2, v3);
 		glUniform4f(GetUniformLocation(name), v0, v1, v2, v3);
 	}
 
 	// Sets uniforms for 1 float types
 	void Shader::SetUniform1f(const std::string& name, float value)
 	{
-		CORE_DEBUG("Added {1} to {0}", name, value);
+		CORE_TRACE("Added {1} to {0}", name, value);
 		glUniform1f(GetUniformLocation(name), value);
 	}
 
 	// Sets uniforms for 1 integer types
 	void Shader::SetUniform1i(const std::string& name, int value)
 	{
-		CORE_DEBUG("Added {1} to {0}", name, value);
+		CORE_TRACE("Added {1} to {0}", name, value);
 		glUniform1i(GetUniformLocation(name), value);
 	}
 
 	// Sets uniforms for 4x4 float matrix
 	void Shader::SetUniformMat4f(const std::string& name, const glm::mat4& matrix)
 	{
-		CORE_DEBUG("Added 4x4 matrix to {0}", name);
+		CORE_TRACE("Added 4x4 matrix to {0}", name);
 		glUniformMatrix4fv(GetUniformLocation(name), 1, GL_FALSE, &matrix[0][0]);
 	}
 
@@ -79,9 +84,11 @@ namespace Core
 	{
 		// If the location and name already exist in the hash map just return the location
 		if (UniformLocationCache.find(name) != UniformLocationCache.end())
+			CORE_TRACE("Found {} in cache", name);
 			return UniformLocationCache[name];
 		GLint location = glGetUniformLocation(ID, name.c_str());
 		UniformLocationCache[name] = location;
+		CORE_TRACE("Adding {} to cache", name);
 		return location;
 	}
 

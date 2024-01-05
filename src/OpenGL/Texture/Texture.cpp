@@ -2,11 +2,11 @@
 namespace Core
 {
 	// Takes a texture and its parameter and converts it into unsigned char* and given to the shader
-	void Texture::init(std::string filePath, GLuint slot, GLenum internalFormat, GLenum format)
+	Texture::Texture(std::string filePath, GLuint slot, GLenum internalFormat, GLenum format)
 	{
 		this->slot = slot;
 		this->filePath = filePath;
-		CORE_DEBUG("Image loaded from {0} at slot - {1}", filePath, slot);
+		CORE_TRACE("Image loaded from {0} at slot - {1}", filePath, slot);
 		stbi_set_flip_vertically_on_load(1);
 		unsigned char* bytes = stbi_load(filePath.c_str(), &width, &height, &BPP, STBI_rgb);
 
@@ -35,13 +35,13 @@ namespace Core
 	// Delete the Texture
 	Texture::~Texture()
 	{
-		CORE_DEBUG("Deleted Texture");
+		CORE_TRACE("Deleted Texture with ID - {}", ID);
 		glDeleteTextures(1, &ID);
 	}
 	// Pass the texture to the shader
 	void Texture::texUnit(Shader& shader, const char* uniform, GLuint unit)
 	{
-		CORE_DEBUG("Binding Texture to be sent to shader");
+		CORE_TRACE("Binding Texture ID - {} to be sent to shader", ID);
 		// Sets up the uniform or global shader variables
 		GLuint texUni = glGetUniformLocation(shader.getID(), uniform);
 		shader.Bind();
@@ -50,13 +50,13 @@ namespace Core
 	// Bind the texture for current usage
 	void Texture::Bind() const
 	{
-		CORE_DEBUG("Binding image at slot - {}", slot);
+		CORE_TRACE("Binding image ID - {} at slot - {}", ID, slot);
 		glBindTexture(GL_TEXTURE_2D, ID);
 	}
 	// Unbind the texture for current usage
 	void Texture::Unbind() const
 	{
-		CORE_DEBUG("Unbinding image at slot - {}", slot);
+		CORE_TRACE("Unbinding image ID - {} at slot - {}", ID, slot);
 		glBindTexture(GL_TEXTURE_2D, 0);
 	}
 };

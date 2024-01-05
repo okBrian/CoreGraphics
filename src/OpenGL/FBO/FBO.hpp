@@ -15,7 +15,7 @@ namespace Core
         int width, height;
     public:
         // Creates the FBO, FBOTexture, and automatically connects the RBO to the FBO
-        void init(int width, int height);
+        FBO(int width, int height);
         ~FBO();
         void AttachColorBuffer();
         void Bind() const;

@@ -4,10 +4,10 @@ namespace Core
 {
 
 	// Initialize the RBO & store it in depth buffer
-	void RBO::init(int width, int height)
+	RBO::RBO(int width, int height)
 	{
-		CORE_DEBUG("Created a RBO with width - {0} and height - {1}", width, height);
 		glGenRenderbuffers(1, &ID);
+		CORE_TRACE("Created a RBO with ID - {}", ID);
 		Bind();
 		glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8, width, height);
 	}
@@ -15,28 +15,28 @@ namespace Core
 	// Delete the RBO
 	RBO::~RBO()
 	{
-		CORE_DEBUG("Deleted RBO");
+		CORE_TRACE("Deleted RBO with ID - {}", ID);
 		glDeleteRenderbuffers(1, &ID);
 	}
 
 	// Binds the RBO for current use
 	void RBO::Bind() const
 	{
-		CORE_DEBUG("Binding RBO");
+		CORE_TRACE("Binding RBO with ID - {}", ID);
 		glBindRenderbuffer(GL_RENDERBUFFER, ID);
 	}
 
 	// Unbind the RBO from current usage
 	void RBO::Unbind() const
 	{
-		CORE_DEBUG("Unbinding RBO");
+		CORE_TRACE("Unbinding RBO with ID - {}", ID);
 		glBindRenderbuffer(GL_RENDERBUFFER, 0);
 	}
 
 	// Attach the RBO to the FBO
 	void RBO::AttachRBO() const
 	{
-		CORE_DEBUG("Attaching RBO to Framebuffer");
+		CORE_TRACE("Attaching RBO with ID - {} to Framebuffer", ID);
 		glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_STENCIL_ATTACHMENT, GL_RENDERBUFFER, ID);  
 	}
 };

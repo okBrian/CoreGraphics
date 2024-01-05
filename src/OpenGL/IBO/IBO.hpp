@@ -11,7 +11,7 @@ namespace Core
 		GLuint ID, count;
 	public:
 		// Generates 1 IBO and gives it the data/indices from the vbo
-		void init(const GLuint* data, GLuint count);
+		IBO(const GLuint* data, GLuint count);
 		// Deletes the IBO
 		~IBO();
 

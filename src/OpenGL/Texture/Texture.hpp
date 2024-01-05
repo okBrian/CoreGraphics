@@ -14,7 +14,7 @@ namespace Core
 
 	public:
 		// Takes a texture and its parameter and converts it into unsigned char* and given to the shader
-		void init(std::string filePath, GLenum slot, GLenum format, GLenum pixelType);
+		Texture(std::string filePath, GLenum slot, GLenum format, GLenum pixelType);
 		// Destroy Texture
 		~Texture();
 		// Pass the texture to the shader
