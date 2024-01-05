@@ -18,7 +18,7 @@ namespace Core
 
 		// Adds a VBO to the VAO
 		// Offset to the first element ie - XYRGB - the offset for RGB is 8
-		void AddBuffer(const VBO& vbo, Layout& layout);
+		void addBuffer(const VBO& vbo, Layout& layout);
 
 		// Binds the VAO for current use
 		void Bind() const;

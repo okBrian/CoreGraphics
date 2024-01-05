@@ -1,7 +1,9 @@
 #include "Window.hpp"
 namespace Core
 {
-    bool isGUIInit = false;
+    bool Window::WindowRunning;
+    bool Window::isGUIInit = false;
+    GLFWwindow* Window::window;
 
     Window::Window(std::string title/*="CoreApp"*/, int width/*=1280*/, int height/*=720*/)
         :  title(title), width(width), height(height)
@@ -27,7 +29,11 @@ namespace Core
             glfwTerminate();
             return;
         }
-
+        #if WIN32
+            glfwSetFramebufferSizeCallback(window, [](GLFWwindow* window, int width, int height) {
+                glViewport(0, 0, width, height);
+            });
+        #endif
         glfwMakeContextCurrent(window);
     }
 
@@ -48,14 +54,6 @@ namespace Core
             glfwPollEvents();
             glfwSwapBuffers(getWindow());
             WindowRunning = !glfwWindowShouldClose(getWindow());
-        #endif
-    }
-
-    void Window::framebuffer_size_callback(GLFWwindow* window, int width, int height)
-    {
-        #if WIN32
-            (void)window;
-            glViewport(0, 0, width, height);
         #endif
     }
 

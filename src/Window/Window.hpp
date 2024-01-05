@@ -1,4 +1,5 @@
 #include <string>
+#include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <Logging/Logging.hpp>
 
@@ -23,7 +24,6 @@ namespace Core
         Window(std::string title="CoreApp", int width=1280, int height=720);
         ~Window();
         static void onUpdate();
-        void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 
         static void ImGuiInit();
         static void ImGuiShutdown();
