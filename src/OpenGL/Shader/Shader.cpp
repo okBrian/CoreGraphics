@@ -84,8 +84,10 @@ namespace Core
 	{
 		// If the location and name already exist in the hash map just return the location
 		if (UniformLocationCache.find(name) != UniformLocationCache.end())
+		{
 			CORE_TRACE("Found {} in cache", name);
 			return UniformLocationCache[name];
+		}
 		GLint location = glGetUniformLocation(ID, name.c_str());
 		UniformLocationCache[name] = location;
 		CORE_TRACE("Adding {} to cache", name);
