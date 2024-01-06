@@ -40,25 +40,98 @@ namespace Core
 		// Unbinds it so you can use different shaders
 		void Unbind() const;
 
-		// Sets uniforms for 4 float types
-		void SetUniform4f(const std::string& name, float v0, float v1, float v2, float v3);
-		// Sets uniforms for 1 float types
-		void SetUniform1f(const std::string& name, float value);
-		// Sets uniforms for 1 integer types
-		void SetUniform1i(const std::string& name, int value);
-		// Sets uniforms for 4x4 float matrix
-		void SetUniformMat4f(const std::string& name, const glm::mat4& matrix);
-		// Return the shader ID/ or the shader program 
+		template<typename T>
+		void setUniform4(const std::string& name, T v0, T v1, T v2, T v3);
+		template<>
+		void setUniform4<GLfloat>(const std::string& name, GLfloat v0, GLfloat v1, GLfloat v2, GLfloat v3);
+		template<>
+		void setUniform4<GLint>(const std::string& name, GLint v0, GLint v1, GLint v2, GLint v3);
+		template<>
+		void setUniform4<GLuint>(const std::string& name, GLuint v0, GLuint v1, GLuint v2, GLuint v3);
+
+		template<typename T>
+		void setUniform4v(const std::string& name, T v0);
+		template<>
+		void setUniform4v<GLfloat*>(const std::string& name, GLfloat* v0);
+		template<>
+		void setUniform4v<GLint*>(const std::string& name, GLint* v0);
+		template<>
+		void setUniform4v<GLuint*>(const std::string& name, GLuint* v0);
+
+		template<typename T>
+		void setUniform3(const std::string& name, T v0, T v1, T v2);
+		template<>
+		void setUniform3<GLfloat>(const std::string& name, GLfloat v0, GLfloat v1, GLfloat v2);
+		template<>
+		void setUniform3<GLint>(const std::string& name, GLint v0, GLint v1, GLint v2);
+		template<>
+		void setUniform3<GLuint>(const std::string& name, GLuint v0, GLuint v1, GLuint v2);
+
+		template<typename T>
+		void setUniform3v(const std::string& name, T v0);
+		template<>
+		void setUniform3v<GLfloat*>(const std::string& name, GLfloat* v0);
+		template<>
+		void setUniform3v<GLint*>(const std::string& name, GLint* v0);
+		template<>
+		void setUniform3v<GLuint*>(const std::string& name, GLuint* v0);
+
+		template<typename T>
+		void setUniform2(const std::string& name, T v0, T v1);
+		template<>
+		void setUniform2<GLfloat>(const std::string& name, GLfloat v0, GLfloat v1);
+		template<>
+		void setUniform2<GLint>(const std::string& name, GLint v0, GLint v1);
+		template<>
+		void setUniform2<GLuint>(const std::string& name, GLuint v0, GLuint v1);
+
+		template<typename T>
+		void setUniform2v(const std::string& name, T v0);
+		template<>
+		void setUniform2v<GLfloat*>(const std::string& name, GLfloat* v0);
+		template<>
+		void setUniform2v<GLint*>(const std::string& name, GLint* v0);
+		template<>
+		void setUniform2v<GLuint*>(const std::string& name, GLuint* v0);
+
+		template<typename T>
+		void setUniform1(const std::string& name, T v0);
+		template<>
+		void setUniform1<GLfloat>(const std::string& name, GLfloat v0);
+		template<>
+		void setUniform1<GLint>(const std::string& name, GLint v0);
+		template<>
+		void setUniform1<GLuint>(const std::string& name, GLuint v0);
+
+		template<typename T>
+		void setUniform1v(const std::string& name, T v0);
+		template<>
+		void setUniform1v<GLfloat*>(const std::string& name, GLfloat* v0);
+		template<>
+		void setUniform1v<GLint*>(const std::string& name, GLint* v0);
+		template<>
+		void setUniform1v<GLuint*>(const std::string& name, GLuint* v0);
+
+		template<typename T>
+		void setUniformMatfv(const std::string& name, const T& matrix);
+		template<>
+		void setUniformMatfv<glm::mat2>(const std::string& name, const glm::mat2& matrix);
+		template<>
+		void setUniformMatfv<glm::mat3>(const std::string& name, const glm::mat3& matrix);
+		template<>
+		void setUniformMatfv<glm::mat4>(const std::string& name, const glm::mat4& matrix);
+
+		// Return the shader ID/ or the shader program
 		inline GLuint getID() { return ID; }
 
 	private:
 		// Read the cache hash map and quickly return it
-		GLint GetUniformLocation(const std::string& name) const;
+		GLint getUniformLocation(const std::string& name) const;
 		// Get the file contents of the shader
-		ShaderSource ParseShader(std::string vertexPath, std::string fragmentPath);
+		ShaderSource parseShader(std::string vertexPath, std::string fragmentPath);
 		// Create the shader itself
-		GLuint CreateShader(ShaderSource shaders);
+		GLuint createShader(ShaderSource shaders);
 		// Compile the shader for any possible errors 
-		GLuint CompileShader(unsigned int type, const std::string& source);
+		GLuint compileShader(unsigned int type, const std::string& source);
 	};
-};
+}

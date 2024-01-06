@@ -49,21 +49,21 @@ namespace Core
 
 		// Adds a vbo by type and the count also adds to the stride
 		template<>
-		void Push<float>(GLuint count)
+		void Push<GLfloat>(GLuint count)
 		{
 			CORE_DEBUG("Pushing GL_FLOATS, count - {0}", count);
 			elements.push_back({ GL_FLOAT, SIZE_FLOAT, count, GL_FALSE });
 			stride += count * SIZE_FLOAT;
 		}
 		template<>
-		void Push<unsigned int>(GLuint count)
+		void Push<GLuint>(GLuint count)
 		{
 			CORE_DEBUG("Pushing GL_UNSIGNED_INT, count - {0}", count);
 			elements.push_back({ GL_UNSIGNED_INT, SIZE_UINT, count, GL_FALSE });
 			stride += count * SIZE_UINT;
 		}
 		template<>
-		void Push<unsigned char>(GLuint count)
+		void Push<GLubyte>(GLuint count)
 		{
 			CORE_DEBUG("Pushing GL_UNSIGNED_BYTE, count - {0}", count);
 			elements.push_back({ GL_UNSIGNED_BYTE, SIZE_UBYTE, count, GL_TRUE });
