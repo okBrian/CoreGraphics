@@ -40,6 +40,7 @@ namespace Core
 		// Unbinds it so you can use different shaders
 		void Unbind() const;
 
+		// Generic Uniform for 4 floats, ints, or uints
 		template<typename T>
 		void setUniform4(const std::string& name, T v0, T v1, T v2, T v3);
 		template<>
@@ -49,6 +50,7 @@ namespace Core
 		template<>
 		void setUniform4<GLuint>(const std::string& name, GLuint v0, GLuint v1, GLuint v2, GLuint v3);
 
+		// Generic Uniform for 4 floats*, ints*, or uints*
 		template<typename T>
 		void setUniform4v(const std::string& name, T v0);
 		template<>
@@ -58,6 +60,7 @@ namespace Core
 		template<>
 		void setUniform4v<GLuint*>(const std::string& name, GLuint* v0);
 
+		// Generic Uniform for 3 floats, ints, or uints
 		template<typename T>
 		void setUniform3(const std::string& name, T v0, T v1, T v2);
 		template<>
@@ -67,6 +70,7 @@ namespace Core
 		template<>
 		void setUniform3<GLuint>(const std::string& name, GLuint v0, GLuint v1, GLuint v2);
 
+		// Generic Uniform for 3 floats*, ints*, or uints*
 		template<typename T>
 		void setUniform3v(const std::string& name, T v0);
 		template<>
@@ -76,6 +80,7 @@ namespace Core
 		template<>
 		void setUniform3v<GLuint*>(const std::string& name, GLuint* v0);
 
+		// Generic Uniform for 2 floats, ints, or uints
 		template<typename T>
 		void setUniform2(const std::string& name, T v0, T v1);
 		template<>
@@ -85,6 +90,7 @@ namespace Core
 		template<>
 		void setUniform2<GLuint>(const std::string& name, GLuint v0, GLuint v1);
 
+		// Generic Uniform for 2 floats*, ints*, or uints*
 		template<typename T>
 		void setUniform2v(const std::string& name, T v0);
 		template<>
@@ -94,6 +100,7 @@ namespace Core
 		template<>
 		void setUniform2v<GLuint*>(const std::string& name, GLuint* v0);
 
+		// Generic Uniform for 1 floats, ints, or uints
 		template<typename T>
 		void setUniform1(const std::string& name, T v0);
 		template<>
@@ -103,6 +110,7 @@ namespace Core
 		template<>
 		void setUniform1<GLuint>(const std::string& name, GLuint v0);
 
+		// Generic Uniform for 1 floats*, ints*, or uints*
 		template<typename T>
 		void setUniform1v(const std::string& name, T v0);
 		template<>
@@ -111,7 +119,8 @@ namespace Core
 		void setUniform1v<GLint*>(const std::string& name, GLint* v0);
 		template<>
 		void setUniform1v<GLuint*>(const std::string& name, GLuint* v0);
-
+		
+		// Generic Uniforms for matrices of 4x4, 3x3, and 2x2
 		template<typename T>
 		void setUniformMatfv(const std::string& name, const T& matrix);
 		template<>

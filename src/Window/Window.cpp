@@ -51,6 +51,7 @@ namespace Core
 
     void Window::onUpdate() {
         #if WIN32
+            CORE_TRACE("glfw Polling, Swapping and such");
             glfwPollEvents();
             glfwSwapBuffers(getWindow());
             WindowRunning = !glfwWindowShouldClose(getWindow());
@@ -59,6 +60,7 @@ namespace Core
 
     //Setup IMGUI
     void Window::ImGuiInit() {
+        CORE_TRACE("IMGUI being enabled");
         isGUIInit = true;
         IMGUI_CHECKVERSION();
         ImGui::CreateContext();
