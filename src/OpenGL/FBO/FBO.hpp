@@ -1,6 +1,6 @@
 #pragma once
 #include <array>
-#include <glad/gl.h>
+#include <glad/glad.h>
 #include <Logging/Logging.hpp>
 #include <RBO/RBO.hpp>
 

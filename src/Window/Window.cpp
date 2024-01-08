@@ -71,7 +71,6 @@ namespace Core
         io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;         // Enable Multi-Viewport / Platform Windows
         // Setup Dear ImGui style
         ImGui::StyleColorsDark();
-
         ImGuiStyle& style = ImGui::GetStyle();
         if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
         {

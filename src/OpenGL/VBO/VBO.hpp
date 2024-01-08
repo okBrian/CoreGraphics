@@ -1,6 +1,6 @@
 #pragma once
 #include <Logging/Logging.hpp>
-#include <glad/gl.h>
+#include <glad/glad.h>
 
 namespace Core
 {

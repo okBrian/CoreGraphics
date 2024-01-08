@@ -1,5 +1,5 @@
 #include <string>
-#include <glad/gl.h>
+#include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <Logging/Logging.hpp>
 
@@ -26,7 +26,6 @@ namespace Core
         static void onUpdate();
 
         static void ImGuiInit();
-        static void ImGuiShutdown();
         static void ImGuiNewFrame();
         static void ImGuiRenderFrame();
 

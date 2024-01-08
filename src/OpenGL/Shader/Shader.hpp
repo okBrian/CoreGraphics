@@ -3,7 +3,7 @@
 #include <unordered_map>
 #include <string>
 
-#include <glad/gl.h>
+#include <glad/glad.h>
 #include <Logging/Logging.hpp>
 
 #include <glm/glm.hpp>
