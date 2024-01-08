@@ -1,5 +1,5 @@
 #pragma once
-#include <glad/glad.h>
+#include <glad/gl.h>
 #include <Logging/Logging.hpp>
 #include <stb_image.h>
 #include <Shader/Shader.hpp>

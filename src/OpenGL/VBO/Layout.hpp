@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <vector>
 
-#include <glad/glad.h>
+#include <glad/gl.h>
 
 #include <Logging/Logging.hpp>
 

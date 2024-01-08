@@ -1,10 +1,18 @@
 # CoreGraphics
-A Basic OpenGL Graphics Engine that tries to simpfly many of the steps at the cost of control
+A Basic OpenGL Graphics Engine that abstracts many of the OpenGL features into classes
 
 ## Usage
 
-This Engine uses CMake as its primary build tool 
-Use [vcpkg](https://github.com/microsoft/vcpkg) in order to get the packages: glfw3, glad[gl-api-latest], spdlog, stb, glm, and imgui[docking-experimental,glfw-binding,opengl-binding]
+This Engine uses CMake as its primary build tool, and uses Git Submodules to add support for glad, glfw, glm, imgui, and spdlog
+
+For usage into a project simply do -
+```
+add_subdirectory(CoreGraphics CoreGraphics)
+
+target_link_libraries(${PROJECT_NAME}
+    PRIVATE CoreGraphics
+)
+```
 
 Use MSVC as the compiler 
 
