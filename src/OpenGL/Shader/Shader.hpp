@@ -1,6 +1,7 @@
 #pragma once
 #include <fstream>
 #include <unordered_map>
+#include <exception>
 #include <string>
 
 #include <glad/glad.h>
@@ -44,7 +45,7 @@ namespace Core
 		inline void setUniform4(const std::string& name, T v0, T v1, T v2, T v3)
 		{
 			CORE_ERROR("Uniform4 Type not given");
-			static_assert(false);
+			throw std::runtime_error("Uniform4 Type not given");
 		}
 		template<>
 		inline void setUniform4<GLfloat>(const std::string& name, GLfloat v0, GLfloat v1, GLfloat v2, GLfloat v3)
@@ -70,7 +71,7 @@ namespace Core
 		inline void setUniform4v(const std::string& name, T v0)
 		{
 			CORE_ERROR("Uniform4v Type not given");
-			static_assert(false);
+			throw std::runtime_error("Uniform4v Type not given");
 		}
 		template<>
 		inline void setUniform4v<GLfloat*>(const std::string& name, GLfloat* v0) 
@@ -95,7 +96,7 @@ namespace Core
 		inline void setUniform3(const std::string& name, T v0, T v1, T v2)
 		{
 			CORE_ERROR("Uniform3 Type not given");
-			static_assert(false);
+			throw std::runtime_error("Uniform3 Type not given");
 		}
 		template<>
 		inline void setUniform3<GLfloat>(const std::string& name, GLfloat v0, GLfloat v1, GLfloat v2)
@@ -120,7 +121,7 @@ namespace Core
 		inline void setUniform3v(const std::string& name, T v0)
 		{
 			CORE_ERROR("Uniform3v Type not given");
-			static_assert(false);
+			throw std::runtime_error("Uniform3v Type not given");
 		}
 		template<>
 		inline void setUniform3v<GLfloat*>(const std::string& name, GLfloat* v0) 
@@ -145,7 +146,7 @@ namespace Core
 		inline void setUniform2(const std::string& name, T v0, T v1)
 		{
 			CORE_ERROR("Uniform2 Type not given");
-			static_assert(false);
+			throw std::runtime_error("Uniform2 Type not given");
 		}
 		template<>
 		inline void setUniform2<GLfloat>(const std::string& name, GLfloat v0, GLfloat v1)
@@ -171,7 +172,7 @@ namespace Core
 		inline void setUniform2v(const std::string& name, T v0)
 		{
 			CORE_ERROR("Uniform2v Type not given");
-			static_assert(false);
+			throw std::runtime_error("Uniform2v Type not given");
 		}
 		template<>
 		inline void setUniform2v<GLfloat*>(const std::string& name, GLfloat* v0) 
@@ -197,7 +198,7 @@ namespace Core
 		inline void setUniform1(const std::string& name, T v0)
 		{
 			CORE_ERROR("Uniform1 Type not given");
-			static_assert(false);
+			throw std::runtime_error("Uniform1 Type not given");
 		}
 		template<>
 		inline void setUniform1<GLfloat>(const std::string& name, GLfloat v0)
@@ -223,7 +224,7 @@ namespace Core
 		inline void setUniform1v(const std::string& name, T v0)
 		{
 			CORE_ERROR("Uniform1v Type not given");
-			static_assert(false);
+			throw std::runtime_error("Uniform1v Type not given");
 		}
 		template<>
 		inline void setUniform1v<GLfloat*>(const std::string& name, GLfloat* v0) 
@@ -249,7 +250,7 @@ namespace Core
 		inline void setUniformMatfv(const std::string& name, const T& matrix) 
 		{
 			CORE_ERROR("UniformMatfv Type not given");
-			static_assert(false);
+			throw std::runtime_error("Uniformfv Type not given");
 		}
 		template<>
 		inline void setUniformMatfv<glm::mat2>(const std::string& name, const glm::mat2& matrix)

@@ -109,7 +109,7 @@ namespace Core
 		{
 			int len;
 			glGetShaderiv(id, GL_INFO_LOG_LENGTH, &len);
-			char* message = (char*)_malloca(len * sizeof(char));
+			char* message = (char*)malloc(len * sizeof(char));
 			glGetShaderInfoLog(id, len, &len, message);
 
 			std::string typeOfShader = (type == GL_VERTEX_SHADER ? "vertex" : "fragment");

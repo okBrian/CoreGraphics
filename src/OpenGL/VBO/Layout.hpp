@@ -1,6 +1,7 @@
 #pragma once
 
 #include <stdio.h>
+#include <exception>
 #include <vector>
 
 #include <glad/glad.h>
@@ -43,8 +44,8 @@ namespace Core
 		template<typename T>
 		void Push(GLuint count)
 		{
-			CORE_ERROR("Push type not given")
-			static_assert(false);
+			CORE_ERROR("Push type not given");
+			throw std::runtime_error("Push type not given");
 		}
 
 		// Adds a vbo by type and the count also adds to the stride

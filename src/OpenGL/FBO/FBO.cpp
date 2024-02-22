@@ -9,7 +9,7 @@ namespace Core
         glGenFramebuffers(1, &ID);
         CORE_TRACE("Initializing the FBO with ID - {}", ID);
         Bind();
-    }
+    }   
 
     FBO::~FBO()
     {
